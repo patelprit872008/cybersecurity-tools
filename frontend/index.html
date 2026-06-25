@@ -29,6 +29,7 @@
                 <a data-page="ssl"><i class="fas fa-lock"></i> SSL</a>
                 <a data-page="url"><i class="fas fa-link"></i> URL</a>
                 <a data-page="whois"><i class="fas fa-globe"></i> WHOIS</a>
+                <a data-page="threat"><i class="fas fa-exclamation-triangle"></i> Threats</a>
                 <a data-page="reports"><i class="fas fa-file-alt"></i> Reports</a>
             </div>
             <div class="nav-actions">
@@ -48,9 +49,9 @@
             <div class="hero-content">
                 <div class="hero-badge"><i class="fas fa-shield-halved"></i> 99% Accuracy Guaranteed</div>
                 <h1>Complete <span>Cybersecurity</span> Toolset</h1>
-                <p>7 powerful security tools with 99% accuracy. Protect, analyze, and secure your infrastructure.</p>
+                <p>8 powerful security tools with 99% accuracy. Protect, analyze, and secure your infrastructure.</p>
                 <div class="hero-stats">
-                    <div class="hero-stat"><span class="number">7</span><span class="label">Security Tools</span></div>
+                    <div class="hero-stat"><span class="number">8</span><span class="label">Security Tools</span></div>
                     <div class="hero-stat"><span class="number">99%</span><span class="label">Accuracy</span></div>
                     <div class="hero-stat"><span class="number">100%</span><span class="label">Free</span></div>
                 </div>
@@ -257,6 +258,45 @@
             </div>
         </section>
 
+        <!-- ===== THREAT ANALYZER (ADVANCED) ===== -->
+        <section id="page-threat" class="page">
+            <div class="page-header"><i class="fas fa-exclamation-triangle"></i>
+                <h2>Threat Analyzer - Advanced</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="text" id="threatInput" placeholder="Enter IP, domain, or threat data to analyze..." />
+                    <button id="analyzeThreatBtn" class="btn btn-primary"><i class="fas fa-search"></i> Analyze</button>
+                </div>
+                <div id="threatResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter threat data to get advanced analysis
+                        <span class="accuracy-badge">99% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tool-container" style="margin-top:20px;">
+                <h3 style="margin-bottom:14px;"><i class="fas fa-info-circle"></i> Advanced Features</h3>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:14px;">
+                    <div class="feature-card">
+                        <i class="fas fa-brain" style="font-size:1.8rem; color:var(--accent); margin-bottom:8px;"></i>
+                        <h4>AI-Powered Detection</h4>
+                        <p style="font-size:0.85rem; color:var(--text-secondary);">Machine learning-based threat detection</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-globe" style="font-size:1.8rem; color:var(--accent); margin-bottom:8px;"></i>
+                        <h4>Global Threat Database</h4>
+                        <p style="font-size:0.85rem; color:var(--text-secondary);">Real-time threat intelligence</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-bar" style="font-size:1.8rem; color:var(--accent); margin-bottom:8px;"></i>
+                        <h4>Risk Assessment</h4>
+                        <p style="font-size:0.85rem; color:var(--text-secondary);">Detailed risk scoring and metrics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== REPORTS ===== -->
         <section id="page-reports" class="page">
             <div class="page-header"><i class="fas fa-file-alt"></i>
@@ -412,6 +452,7 @@
     <script src="js/sslChecker.js"></script>
     <script src="js/urlScanner.js"></script>
     <script src="js/whoisLookup.js"></script>
+    <script src="js/threatAnalyzer.js"></script>
     <script src="js/reports.js"></script>
 </body>
 
