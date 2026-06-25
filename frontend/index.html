@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard Pro - 99% Accuracy Security Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo" onclick="navigateTo('dashboard')">
+                <div class="logo-icon"><i class="fas fa-shield-halved"></i></div>
+                <span>CyberGuard</span>
+                <span class="badge-pro">99%</span>
+            </div>
+            <div class="nav-links">
+                <a class="active" data-page="dashboard"><i class="fas fa-chart-pie"></i> Home</a>
+                <a data-page="password"><i class="fas fa-key"></i> Password</a>
+                <a data-page="hash"><i class="fas fa-hashtag"></i> Hash</a>
+                <a data-page="ports"><i class="fas fa-plug"></i> Ports</a>
+                <a data-page="ssl"><i class="fas fa-lock"></i> SSL</a>
+                <a data-page="url"><i class="fas fa-link"></i> URL</a>
+                <a data-page="whois"><i class="fas fa-globe"></i> WHOIS</a>
+                <a data-page="reports"><i class="fas fa-file-alt"></i> Reports</a>
+            </div>
+            <div class="nav-actions">
+                <span id="userDisplay">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Crect width='28' height='28' rx='14' fill='%233b82f6'/%3E%3Ctext x='14' y='18' text-anchor='middle' fill='white' font-size='12' font-family='Arial'%3EG%3C/text%3E%3C/svg%3E"
+                        alt="User" />
+                    Guest
+                </span>
+                <button id="authBtn" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-shield-halved"></i> 99% Accuracy Guaranteed</div>
+                <h1>Complete <span>Cybersecurity</span> Toolset</h1>
+                <p>7 powerful security tools with 99% accuracy. Protect, analyze, and secure your infrastructure.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="number">7</span><span class="label">Security Tools</span></div>
+                    <div class="hero-stat"><span class="number">99%</span><span class="label">Accuracy</span></div>
+                    <div class="hero-stat"><span class="number">100%</span><span class="label">Free</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=300&fit=crop&auto=format"
+                    alt="Cyber Security" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="container">
+
+        <!-- ===== DASHBOARD ===== -->
+        <section id="page-dashboard" class="page active">
+            <div class="page-header">
+                <i class="fas fa-shield-halved"></i>
+                <h2>Security Dashboard</h2>
+                <span class="status-badge"><i class="fas fa-circle"></i> All systems operational</span>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon red"><i class="fas fa-bug"></i></div>
+                    <div class="stat-info">
+                        <h3 id="threatCount">0</h3>
+                        <p>Threats Detected</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fas fa-search"></i></div>
+                    <div class="stat-info">
+                        <h3 id="scanCount">0</h3>
+                        <p>Scans Performed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon yellow"><i class="fas fa-file-alt"></i></div>
+                    <div class="stat-info">
+                        <h3 id="reportCount">0</h3>
+                        <p>Reports Generated</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fas fa-shield"></i></div>
+                    <div class="stat-info">
+                        <h3 id="secureScore">0%</h3>
+                        <p>Security Score</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-line"></i> Threat Overview</h3>
+                    </div>
+                    <div class="chart-container" id="threatChart">
+                        <div class="chart-bar critical" style="height:65%;"><span
+                                class="bar-value">65%</span><span>Critical</span></div>
+                        <div class="chart-bar high" style="height:45%;"><span
+                                class="bar-value">45%</span><span>High</span></div>
+                        <div class="chart-bar medium" style="height:30%;"><span
+                                class="bar-value">30%</span><span>Medium</span></div>
+                        <div class="chart-bar low" style="height:15%;"><span
+                                class="bar-value">15%</span><span>Low</span></div>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                    </div>
+                    <div id="recentActivity">
+                        <div class="activity-item">
+                            <div class="activity-avatar" style="background:rgba(59,130,246,0.2);color:var(--accent);"><i
+                                    class="fas fa-shield"></i></div>
+                            <div class="activity-content">
+                                <div class="desc">System initialized</div>
+                                <div class="time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PASSWORD CHECKER ===== -->
+        <section id="page-password" class="page">
+            <div class="page-header"><i class="fas fa-key"></i>
+                <h2>Password Strength Checker</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="password" id="passwordInput" placeholder="Enter password to check..." />
+                    <button id="checkPasswordBtn" class="btn btn-primary"><i class="fas fa-shield"></i> Check</button>
+                </div>
+                <div id="passwordResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter a password to check its strength
+                        <span class="accuracy-badge">99% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HASH GENERATOR ===== -->
+        <section id="page-hash" class="page">
+            <div class="page-header"><i class="fas fa-hashtag"></i>
+                <h2>Hash Generator</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="text" id="hashInput" placeholder="Enter text to hash..." />
+                    <select id="hashAlgorithm">
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha512">SHA-512</option>
+                        <option value="md5">MD5</option>
+                        <option value="sha1">SHA-1</option>
+                    </select>
+                    <button id="generateHashBtn" class="btn btn-primary"><i class="fas fa-code"></i> Generate</button>
+                </div>
+                <div id="hashResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter text and select algorithm
+                        <span class="accuracy-badge">100% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PORT SCANNER ===== -->
+        <section id="page-ports" class="page">
+            <div class="page-header"><i class="fas fa-plug"></i>
+                <h2>Port Scanner</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="text" id="portHostInput" placeholder="Enter host (e.g., example.com)" />
+                    <input type="text" id="portListInput" placeholder="Ports (e.g., 80,443,22)" />
+                    <button id="scanPortsBtn" class="btn btn-primary"><i class="fas fa-search"></i> Scan</button>
+                </div>
+                <div id="portResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter host and ports to scan
+                        <span class="accuracy-badge">99% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SSL CHECKER ===== -->
+        <section id="page-ssl" class="page">
+            <div class="page-header"><i class="fas fa-lock"></i>
+                <h2>SSL Certificate Checker</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="text" id="sslDomainInput" placeholder="Enter domain (e.g., example.com)" />
+                    <button id="checkSslBtn" class="btn btn-primary"><i class="fas fa-search"></i> Check</button>
+                </div>
+                <div id="sslResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter domain to check SSL certificate
+                        <span class="accuracy-badge">99% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== URL SCANNER ===== -->
+        <section id="page-url" class="page">
+            <div class="page-header"><i class="fas fa-link"></i>
+                <h2>URL Security Scanner</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="url" id="urlInput" placeholder="https://example.com" />
+                    <button id="scanUrlBtn" class="btn btn-primary"><i class="fas fa-search"></i> Scan</button>
+                </div>
+                <div id="urlResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter a URL to scan for security threats
+                        <span class="accuracy-badge">99% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHOIS LOOKUP ===== -->
+        <section id="page-whois" class="page">
+            <div class="page-header"><i class="fas fa-globe"></i>
+                <h2>WHOIS Lookup</h2>
+            </div>
+            <div class="tool-container">
+                <div class="input-group">
+                    <input type="text" id="whoisDomainInput" placeholder="Enter domain (e.g., example.com)" />
+                    <button id="whoisLookupBtn" class="btn btn-primary"><i class="fas fa-search"></i> Lookup</button>
+                </div>
+                <div id="whoisResult" class="result-container">
+                    <div class="result-item" style="color:var(--text-secondary);">
+                        <i class="fas fa-info-circle"></i> Enter domain to perform WHOIS lookup
+                        <span class="accuracy-badge">99% Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REPORTS ===== -->
+        <section id="page-reports" class="page">
+            <div class="page-header"><i class="fas fa-file-alt"></i>
+                <h2>Incident Reports</h2>
+            </div>
+            <div class="reports-actions">
+                <button id="newReportBtn" class="btn btn-primary"><i class="fas fa-plus"></i> New Report</button>
+            </div>
+            <div id="reportForm" class="report-form hidden">
+                <h3><i class="fas fa-file-pen"></i> Create New Report</h3>
+                <form id="reportFormElement">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="reportTitle" placeholder="Enter report title" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="reportType">
+                            <option value="Malware">Malware</option>
+                            <option value="Phishing">Phishing</option>
+                            <option value="DDoS">DDoS</option>
+                            <option value="Data Breach">Data Breach</option>
+                            <option value="Vulnerability">Vulnerability</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Severity</label>
+                        <select id="reportSeverity">
+                            <option value="Critical">Critical</option>
+                            <option value="High">High</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="reportDescription" rows="3" placeholder="Describe the incident..."
+                            required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Create</button>
+                        <button type="button" id="cancelReportBtn" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div id="reportsList" class="reports-list">
+                <div style="text-align:center;padding:30px 0;color:var(--text-secondary);">
+                    <i class="fas fa-file-alt" style="font-size:2rem;display:block;margin-bottom:8px;"></i>
+                    <p>No reports yet. Create your first incident report!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== AUTH MODAL ===== -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <h2 id="authModalTitle"><i class="fas fa-user-shield"></i> Login</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="authUsername" placeholder="Enter username" required />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="authPassword" placeholder="Enter password" required />
+                </div>
+                <div class="form-actions" style="flex-direction:column;gap:8px;">
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                        <i class="fas fa-sign-in-alt"></i> Submit
+                    </button>
+                    <button type="button" id="closeAuthBtn" class="btn btn-secondary"
+                        style="width:100%;justify-content:center;">
+                        Cancel
+                    </button>
+                </div>
+                <p id="authToggle" style="text-align:center;margin-top:12px;cursor:pointer;color:var(--accent);">
+                    Don't have an account? Register
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="brand-name">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>CyberGuard Pro</span>
+                    <span style="font-size:0.6rem;color:var(--text-secondary);">v2.0</span>
+                </div>
+                <p><i class="fas fa-quote-left" style="color:var(--accent);font-size:0.7rem;"></i> Empowering security
+                    professionals with cutting-edge tools to protect digital assets against evolving cyber threats. <i
+                        class="fas fa-quote-right" style="color:var(--accent);font-size:0.7rem;"></i></p>
+                <div class="footer-social">
+                    <!-- ===== YAHAN APNE URLs DAAL DO ===== -->
+                    <a id="social-github" href="https://github.com/patelprit872008" target="_blank" rel="noopener" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a id="social-twitter" href="#" target="_blank" rel="noopener" title="Twitter / X"><i
+                            class="fab fa-twitter"></i></a>
+                    <a id="social-linkedin" href="#" target="_blank" rel="noopener" title="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a id="social-youtube" href="#" target="_blank" rel="noopener" title="YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                    <a id="social-discord" href="#" target="_blank" rel="noopener" title="Discord"><i
+                            class="fab fa-discord"></i></a>
+                    <a id="social-telegram" href="#" target="_blank" rel="noopener" title="Telegram"><i
+                            class="fab fa-telegram-plane"></i></a>
+                    <!-- ===== URLs UPAR CHANGE KARO ===== -->
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:var(--text-primary);font-size:0.9rem;margin-bottom:4px;">Quick Links</h4>
+                <a href="#" onclick="navigateTo('dashboard')"><i class="fas fa-chevron-right"
+                        style="font-size:0.5rem;"></i> Dashboard</a>
+                <a href="#" onclick="navigateTo('password')"><i class="fas fa-chevron-right"
+                        style="font-size:0.5rem;"></i> Password Checker</a>
+                <a href="#" onclick="navigateTo('hash')"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i>
+                    Hash Generator</a>
+                <a href="#" onclick="navigateTo('ports')"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i>
+                    Port Scanner</a>
+                <a href="#" onclick="navigateTo('ssl')"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i>
+                    SSL Checker</a>
+                <a href="#" onclick="navigateTo('url')"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i>
+                    URL Scanner</a>
+                <a href="#" onclick="navigateTo('whois')"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i>
+                    WHOIS Lookup</a>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:var(--text-primary);font-size:0.9rem;margin-bottom:4px;">Resources</h4>
+                <a href="#"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i> Documentation</a>
+                <a href="#"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i> API Reference</a>
+                <a href="#"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i> Security Blog</a>
+                <a href="#"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i> Community</a>
+                <a href="#"><i class="fas fa-chevron-right" style="font-size:0.5rem;"></i> Support</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <i class="fas fa-shield-halved" style="color:var(--accent);"></i>
+                © 2026 CyberGuard Pro. Built with <span>❤️</span> for security professionals worldwide.
+                All tools are 99% accurate and completely free to use.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT FILES ===== -->
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/passwordChecker.js"></script>
+    <script src="js/hashGenerator.js"></script>
+    <script src="js/portScanner.js"></script>
+    <script src="js/sslChecker.js"></script>
+    <script src="js/urlScanner.js"></script>
+    <script src="js/whoisLookup.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+
+</html>
